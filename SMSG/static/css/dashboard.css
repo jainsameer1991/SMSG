@@ -1,0 +1,32 @@
+#DivToShow {
+  opacity: 0;
+}
+
+    tr:hover #DivToShow {
+        display: inline-block;
+  opacity: 1;
+    }
+
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px;
+  color:#ccc;
+}

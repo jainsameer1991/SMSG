@@ -1,0 +1,57 @@
+{% extends 'basic.html' %}
+{% load static from staticfiles %}
+
+
+{% block titleContent%} Dashboard {% endblock %}
+
+{% block scriptsContent%}
+<script src="{% static 'scripts/search_content_in_table.js' %}"></script>
+{% endblock %}
+
+{% block stylesContent%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+
+{% block bodyContent%}
+<br><br>
+
+<div class="form-group pull-right container">
+    <input type="text" class="search form-control" placeholder="Search Stocks">
+    <span class="counter pull-right"></span>
+</div>
+
+<div class="container">
+    <div id="stocksList" class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-hover results">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">SYMBOL</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">ACTIONS</th>
+            </tr>
+            <tr class="warning no-result">
+                <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for stock in stocks %}
+            <tr class="classForHoverEffect">
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{stock.symbol}}</td>
+                <td>{{stock.price}}</td>
+                <td>
+                    <div id="DivToShow">
+                        <button type="button" class="btn btn-outline-secondary"><b>+</b></button>
+                        <button type="button" class="btn btn-outline-primary">B</button>
+                        <button type="button" class="btn btn-outline-warning">S</button>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
