@@ -21,3 +21,7 @@ def dashboard(request):
 
 def history(request):
     return render(request, 'history.html')
+
+
+def login(request):
+    return render(request, 'login.html')
