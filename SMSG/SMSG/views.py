@@ -19,9 +19,14 @@ def dashboard(request):
     params = {'stocks': stocks}
     return render(request, 'dashboard.html', params)
 
+
 def history(request):
     return render(request, 'history.html')
 
 
 def login(request):
     return render(request, 'login.html')
+
+
+def signup(request):
+    return render(request, 'signUp.html')
