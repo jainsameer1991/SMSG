@@ -23,5 +23,6 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('history/', views.history, name='history'),
     path('login/', views.login, name='login'),
-    path(r'fetchvals/', views.fetchvals, name='fetchvals'),
+    path('signup/', views.signup, name='signup'),
+    path(r'fetchvals/', views.fetchvals, name='fetchvals')
 ]

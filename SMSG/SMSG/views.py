@@ -30,6 +30,10 @@ def login(request):
     return render(request, 'login.html')
 
 
+def signup(request):
+    return render(request, 'signUp.html')
+
+
 def fetchvals(request):
     if request.is_ajax():
         print('Ajax Call is executing')
