@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('history/', views.history, name='history')
+    path('history/', views.history, name='history'),
+    path(r'fetchvals/', views.fetchvals, name='fetchvals'),
 ]

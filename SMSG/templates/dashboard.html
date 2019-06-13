@@ -6,6 +6,7 @@
 
 {% block scriptsContent%}
 <script src="{% static 'scripts/search_content_in_table.js' %}"></script>
+<script src="{% static 'scripts/fetch_latest_stocklist.js' %}"></script>
 {% endblock %}
 
 {% block stylesContent%}
@@ -23,12 +24,13 @@
 
 <div class="container">
     <div id="stocksList" class="table-wrapper-scroll-y my-custom-scrollbar">
-        <table class="table table-hover results">
+        <table id="stocklist" class="table table-hover results">
             <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">SYMBOL</th>
                 <th scope="col">PRICE</th>
+                <th scope="col">CHANGE</th>
                 <th scope="col">ACTIONS</th>
             </tr>
             <tr class="warning no-result">
@@ -41,6 +43,7 @@
                 <th scope="row">{{forloop.counter}}</th>
                 <td>{{stock.symbol}}</td>
                 <td>{{stock.price}}</td>
+                <td></td>
                 <td>
                     <div id="DivToShow">
                         <button type="button" class="btn btn-outline-secondary"><b>+</b></button>
