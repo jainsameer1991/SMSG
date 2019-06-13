@@ -26,6 +26,10 @@ def history(request):
     return render(request, 'history.html')
 
 
+def login(request):
+    return render(request, 'login.html')
+
+
 def fetchvals(request):
     if request.is_ajax():
         print('Ajax Call is executing')
