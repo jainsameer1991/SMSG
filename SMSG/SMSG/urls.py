@@ -24,6 +24,5 @@ urlpatterns = [
     path('history/', views.history, name='history'),
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
-    path('login/', views.login, name='login'),
     path(r'fetchvals/', views.fetchvals, name='fetchvals')
 ]
