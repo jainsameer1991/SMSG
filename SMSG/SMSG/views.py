@@ -33,7 +33,6 @@ def login(request):
 def fetchvals(request):
     if request.is_ajax():
         print('Ajax Call is executing')
-    print('inside fetchvals in server')
     stock1 = {'symbol': 'REL', 'price': round(random.uniform(0, 100), 2)}
     stock2 = {'symbol': 'SBI', 'price': round(random.uniform(0, 100), 2)}
     stock3 = {'symbol': 'REL', 'price': round(random.uniform(0, 100), 2)}
