@@ -24,7 +24,14 @@ $(document).ready(function(){
 			            trs.eq(i).find('td').eq(2).css("color", "");
 			        }
 			        trs.eq(i).find('td').eq(1).html(data.stocks[i].price);
+                    if(trs.eq(i).hasClass("inBuyState")){
+                        var stockPrice = trs.eq(i).find('td').eq(1).html();
+                        var quantity = $('#quantityField').val();
 
+                        $('#quantitySpan').html(quantity);
+                        $('.stockPriceSpan').html(stockPrice);
+                        $('.stockPrice').val(parseFloat(parseFloat(stockPrice) * parseFloat(quantity)).toFixed(2));
+                    }
                 });
 			},
 			error: function(data) {

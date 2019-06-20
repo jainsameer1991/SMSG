@@ -7,10 +7,12 @@
 {% block scriptsContent%}
 <script src="{% static 'scripts/search_content_in_table.js' %}"></script>
 <script src="{% static 'scripts/fetch_latest_stocklist.js' %}"></script>
+<script src="{% static 'scripts/buy_stock.js' %}"></script>
 {% endblock %}
 
 {% block stylesContent%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/buy_stock.css' %}">
 {% endblock %}
 
 
@@ -47,7 +49,7 @@
                 <td>
                     <div id="DivToShow">
                         <button type="button" class="btn btn-outline-secondary"><b>+</b></button>
-                        <button type="button" class="btn btn-outline-primary">B</button>
+                        <button type="button" class="btn btn-outline-primary buyButton">B</button>
                         <button type="button" class="btn btn-outline-warning">S</button>
                     </div>
                 </td>
@@ -55,6 +57,45 @@
             {% endfor %}
             </tbody>
         </table>
+    </div>
+</div>
+
+
+<div id="bg-modal" class="bg-modal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <div>
+                Buy
+                <span id="stockSymbol">RELIANCE</span> X
+                <span id="quantitySpan">1</span> @
+                <span class="stockPriceSpan">1275</span>
+            </div>
+            <div class="close closeBuyDialog">
+                +
+            </div>
+        </div>
+
+        <div class="btable-container">
+            <table>
+                <thead>
+                <tr>
+                    <td>QTY</td>
+                    <td> PRICE</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input id="quantityField" type="text" placeholder="QTY" value="1"></td>
+                    <td><input type="text" placeholder="PRICE" class="stockPrice" disabled></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <a href="" class="button">Buy</a>
+            <a href="" class="button closeBuyDialog">Cancel</a>
+        </div>
     </div>
 </div>
 {% endblock %}
