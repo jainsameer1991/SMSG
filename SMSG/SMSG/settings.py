@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'orderbook.apps.OrderbookConfig',
+    'stock.apps.StockConfig'
 ]
 
 MIDDLEWARE = [
@@ -121,3 +123,4 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
+LOGIN_REDIRECT_URL = '/dashboard'

@@ -30,7 +30,7 @@
     padding:10px;
 }
 
-.close{
+.closeDialogButton{
     position:absolute;
     top:-10;
     right:15px;

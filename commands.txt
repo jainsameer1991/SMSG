@@ -1,0 +1,11 @@
+python manage.py startapp <app_name> --> to start/create an app
+
+add this app entry in settings.py file
+
+python manage.py makemigrations
+
+python manage.py migrate -> To create tables inside database
+
+python manage.py collectstatic  --> To collect all static files in one directory
+
+python manage.py collectstatic --noinput --clear --> To update all static files

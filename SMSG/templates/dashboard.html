@@ -8,16 +8,24 @@
 <script src="{% static 'scripts/search_content_in_table.js' %}"></script>
 <script src="{% static 'scripts/fetch_latest_stocklist.js' %}"></script>
 <script src="{% static 'scripts/buy_stock.js' %}"></script>
+<script src="{% static 'scripts/register_order.js' %}"></script>
 {% endblock %}
 
 {% block stylesContent%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/buy_stock.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/register_order_success.css' %}">
 {% endblock %}
 
 
 {% block bodyContent%}
+<h1>Hi {{user.username}}</h1>
 <br><br>
+
+<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Order Placed!
+</div>
 
 <div class="form-group pull-right container">
     <input type="text" class="search form-control" placeholder="Search Stocks">
@@ -43,8 +51,8 @@
             {% for stock in stocks %}
             <tr class="classForHoverEffect">
                 <th scope="row">{{forloop.counter}}</th>
-                <td>{{stock.symbol}}</td>
-                <td>{{stock.price}}</td>
+                <td>{{stock.stock_symbol}}</td>
+                <td>{{stock.stock_price}}</td>
                 <td></td>
                 <td>
                     <div id="DivToShow">
@@ -67,11 +75,11 @@
         <div class="modal-header">
             <div>
                 Buy
-                <span id="stockSymbol">RELIANCE</span> X
+                <span id="stockSymbol">RELIANCE</span>
                 <span id="quantitySpan">1</span> @
                 <span class="stockPriceSpan">1275</span>
             </div>
-            <div class="close closeBuyDialog">
+            <div class="close closeBuyDialog closeDialogButton">
                 +
             </div>
         </div>
@@ -87,14 +95,14 @@
                 <tbody>
                 <tr>
                     <td><input id="quantityField" type="text" placeholder="QTY" value="1"></td>
-                    <td><input type="text" placeholder="PRICE" class="stockPrice" disabled></td>
+                    <td><input id="totalPrice" type="text" placeholder="PRICE" class="stockPrice" disabled></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div>
-            <a href="" class="button">Buy</a>
-            <a href="" class="button closeBuyDialog">Cancel</a>
+            <button id="buyStockButton" class="button">Buy</button>
+            <button class="button closeBuyDialog">Cancel</button>
         </div>
     </div>
 </div>

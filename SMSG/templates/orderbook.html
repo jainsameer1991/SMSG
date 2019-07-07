@@ -1,0 +1,62 @@
+{% extends 'basic.html' %}
+{% block titleContent %}
+Orderbook
+{% endblock %}
+
+{% block scriptsContent%}
+<script>
+   $(document).ready(function(){
+    $( "tbody>tr>:nth-child(3)").each(function(){
+        var text = $(this).html();
+        if(text == "BUY"){
+            $(this).css("color", "blue");
+        }
+        else{
+            $(this).css("color", "");
+        }
+    });
+   });
+
+
+
+</script>
+{% endblock %}
+
+{% block stylesContent%}
+<style>
+.boxed {
+  border: 1px solid green ;
+}
+</style>
+{% endblock %}
+
+
+
+{% block bodyContent %}
+<table class="table borderless">
+    <thead>
+    <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Type</th>
+        <th scope="col">Qty.</th>
+        <th scope="col">Price</th>
+        <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+    <tr>
+        <td>{{order.order_timestamp}}</td>
+        <td>{{order.order_symbol}}</td>
+        <td>{{order.order_type}}</td>
+        <td>{{order.order_quantity}}</td>
+        <td>{{order.order_price}}</td>
+        <td>
+            <span class="boxed">{{order.order_status}}</span>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock%}
